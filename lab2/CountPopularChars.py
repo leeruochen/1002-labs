@@ -31,7 +31,8 @@ def CountPopularChars():
      for i in word:
           hashmap[i] = hashmap.get(i, 0) + 1
      
-     sorted_freq = sorted(hashmap.items(), key = lambda x: x[1], reverse = True)
+     #lambda function to sort by frequency (descending) and then by character (ascending)
+     sorted_freq = sorted(hashmap.items(), key = lambda x: (-x[1], x[0]))
 
      top5freq = sorted_freq[:5]
 
@@ -40,4 +41,3 @@ def CountPopularChars():
 
 if __name__=='__main__':
       CountPopularChars()
-      

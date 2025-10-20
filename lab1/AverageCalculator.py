@@ -29,22 +29,21 @@ Your input is invalid!
 import sys
 # You can use sys.argv[1] to get the first input argument.
 # sys.argv[2] is the second argument, etc.
-def AverageCalculator(num1, num2, num3):
-   average = round((num1 + num2 + num3) / 3, 2)
-   return print(f"{average:.2f}")
-         
-         
-def main():
+def AverageCalculator():
    if len(sys.argv) != 4:
          return print("Please input 3 values")
    try:
       num1 = float(sys.argv[1])
       num2 = float(sys.argv[2])
       num3 = float(sys.argv[3])
-      AverageCalculator(num1, num2, num3)
+
+      average = round((num1 + num2 + num3) / 3, 2)
+      
+      return print(f"Average:{average:.2f}")
+
    except ValueError:
       print("Your input is invalid!")
-
+   
 
 if __name__=='__main__':
-   main()
+   AverageCalculator()

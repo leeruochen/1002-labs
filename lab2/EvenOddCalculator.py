@@ -44,10 +44,10 @@ def EvenOddCalculator():
               Smallest = min(numbers)
 
               BigMinusSmall = Biggest - Smallest 
-              average = ((evenSum + oddSum) - (Biggest + Smallest)) / (len(numbers) - 2)
+              average = int(((evenSum + oddSum) - (Biggest + Smallest)) / (len(numbers) - 2))
               
 
-              results = f"The sum of all even numbers is {evenSum}, the sum of all odd numbers is {oddSum}, the difference between the biggest and smallest number is {BigMinusSmall}, the total number of even numbers is {len(evens)}, the total number of odd numbers is {len(odds)}, the centered average is {average:.0f}"
+              results = f"The sum of all even numbers is {evenSum}, the sum of all odd numbers is {oddSum}, the difference between the biggest and smallest number is {BigMinusSmall}, the total number of even numbers is {len(evens)}, the total number of odd numbers is {len(odds)}, the centered average is {average}."
 
               print(results)
        except ValueError:
@@ -56,4 +56,5 @@ def EvenOddCalculator():
 
 if __name__=='__main__':
       EvenOddCalculator()
+      
       

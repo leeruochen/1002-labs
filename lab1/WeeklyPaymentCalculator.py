@@ -39,18 +39,7 @@ import sys
 epsilon = 1e-12
 # You can use sys.argv[1] to get the first input argument.
 # sys.argv[2] is the second argument, etc.
-def WeeklyPaymentCalculator(hours, normal, overtime):
-    normalHours = min(hours, 40)
-    extraHours = max(hours - 40, 0)
-
-    extraSalary = round(extraHours * overtime + epsilon, 2)
-    normalSalary = round(normalHours * normal + epsilon, 2)
-    totalSalary = round(normalSalary + extraSalary + epsilon, 2)
-
-    return f"Normal Salary:{normalSalary:.2f},\tExtra Salary:{extraSalary:.2f},\tTotal Salary:{totalSalary:.2f}"
-
-
-def main():
+def WeeklyPaymentCalculator():
     if len(sys.argv) != 4:
         return print("Your input is invalid!")
     
@@ -58,15 +47,22 @@ def main():
         hours = float(sys.argv[1])
         normal = float(sys.argv[2])
         overtime = float(sys.argv[3])
+        normalHours = min(hours, 40)
+        extraHours = max (hours - 40, 0)
 
         if hours < 0 or hours > 168:
             return print("Your input is invalid!")
+        
+        extraSalary = round(extraHours * overtime + epsilon, 2)
+        normalSalary = round(normalHours * normal + epsilon, 2)
+        totalSalary = round(normalSalary + extraSalary + epsilon, 2)
 
-        result = WeeklyPaymentCalculator(hours, normal, overtime)
-        print(result)
+        return print(f"Normal Salary:{normalSalary:.2f}, Extra Salary:{extraSalary:.2f}, Total Salary:{totalSalary:.2f}")
+        
     except ValueError:
         print("Your input is invalid!")
 
+
 if __name__=='__main__':
-    main()
+    WeeklyPaymentCalculator()
     

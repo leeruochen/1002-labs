@@ -74,45 +74,42 @@ import sys
 # You can use sys.argv[1] to get the first input argument.
 # sys.argv[2] is the second argument, etc.
 
-def BMICalculator(unit, height, weight):
-   bmi = 0
-   height *= height
-   if unit.lower() == "metric":
-      bmi = weight / height
-   elif unit.lower() == "imperial":
-      bmi = 703 * (weight/height)
-   else:
-      return ("Invalid choice of unit!")
-
-   if bmi <= 16:
-      return f"{bmi:.2f}\tSevere Thinness"
-   elif 16 < bmi < 17:
-      return f"{bmi:.2f}\tModerate Thinness"
-   elif 17 < bmi < 18.5:
-      return f"{bmi:.2f}\tMild Thinness"
-   elif 18.5 < bmi < 25:
-      return f"{bmi:.2f}\tNormal"
-   elif 25 < bmi < 30:
-      return f"{bmi:.2f}\tOverweight"
-   elif 30 < bmi < 35:
-      return f"{bmi:.2f}\tObese Class I"
-   elif 35 < bmi < 40:
-      return f"{bmi:.2f}\tObese Class II"
-   elif bmi > 40:
-      return f"{bmi:.2f}\tObese Class III"
-
-
-def main():
+def BMICalculator():
    if len(sys.argv) != 4:
          return print("Your input is invalid!")
    try:
       height = float(sys.argv[2])
       weight = float(sys.argv[3])
-      result = BMICalculator(sys.argv[1], height, weight)
-      print(result)
+      unit = str(sys.argv[1])
+      bmi = 0
+      height *= height
+      if unit.lower() == "metric":
+         bmi = weight / height
+      elif unit.lower() == "imperial":
+         bmi = 703 * (weight/height)
+      else:
+         return print("Your input is invalid!")
+
+      if bmi <= 16:
+         return print(f"{bmi:.2f}\tSevere Thinness")
+      elif 16 < bmi < 17:
+         return print(f"{bmi:.2f}\tModerate Thinness")
+      elif 17 < bmi < 18.5:
+         return print(f"{bmi:.2f}\tMild Thinness")
+      elif 18.5 < bmi < 25:
+         return print(f"{bmi:.2f}\tNormal")
+      elif 25 < bmi < 30:
+         return print(f"{bmi:.2f}\tOverweight")
+      elif 30 < bmi < 35:
+         return print(f"{bmi:.2f}\tObese Class I")
+      elif 35 < bmi < 40:
+         return print(f"{bmi:.2f}\tObese Class II")
+      elif bmi > 40:
+         return print(f"{bmi:.2f}\tObese Class III")
+
    except ValueError:
       print("Your input is invalid!")
 
 
 if __name__=='__main__':
-   main()
+   BMICalculator()
