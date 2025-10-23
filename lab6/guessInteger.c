@@ -61,7 +61,6 @@ int main()
     do {
         printf("Player 1, enter a number between 1 and 1000:");
         scanf("%d", &target);
-        getchar();
         if (target > 1000 || target < 1){
             printf("That number is out of range.\n");
         }
