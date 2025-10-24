@@ -59,7 +59,7 @@ int main()
     int guesses = 10;
     int target;
     do {
-        printf("Player 1, enter a number between 1 and 1000:");
+        printf("Player 1, enter a number between 1 and 1000:\n");
         scanf("%d", &target);
         if (target > 1000 || target < 1){
             printf("That number is out of range.\n");
@@ -69,8 +69,13 @@ int main()
 
     int guess;
     do {
-        printf("Player 2, you have %d guess(es) remaining.\n", guesses);
-        printf("Enter your guess:");
+        if (guesses > 1) {
+            printf("Player 2, you have %d guesses remaining.\n", guesses);
+        } else{
+            printf("Player 2, you have %d guess remaining.\n", guesses);
+        }
+        
+        printf("Enter your guess:\n");
         scanf("%d", &guess);
         if (guess > 1000 || guess < 1){
             printf("That number is out of range.\n");
